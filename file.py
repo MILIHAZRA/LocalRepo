@@ -1,21 +1,11 @@
-subject_taken=input("How many subject you have taken in IIT?")
-print(subject_taken)
-subject_1=input("enter the marks of subject 1:")
-print(subject_1)
+import qrcode
+qr=qrcode.QRCode(version=1,
+                 error_correction=qrcode.constants.ERROR_CORRECT_H,
+                 box_size=10,
+                 border=4)
 
-subject_2=input("enter the marks of subject 2:")
-print(subject_2)
-
-subject_3=input("enter the marks of subject 3:")
-print(subject_3)
-import numpy
-average_marks=[90,78,67]
-avg=numpy.mean(average_marks)
-print(avg)
-
-print(f"enter your average marks:{avg}")
-
-if avg > 40:
-    print("ypu are pass")
-else:
-    print("you are fail")
+qr.add_data("https://github.com/MILIHAZRA/HEYWORLDbymili")
+qr.make(fit=True)
+img=qr.make_image(fill_color="black",back_color="white")
+img.save("MILIHAZRA_github.png")
+print("QR Code generated and saved as 'my_qrcode.png'")
